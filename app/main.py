@@ -3,17 +3,21 @@ class SoftwareEngineer:
         self.name = name
         self.skills = []
 
+    # def learn_skill(self, skill: list[str]) -> None:
+    #     self.skills.extend(skill)
     def learn_skill(self, skill: str) -> None:
-        # self.skills.extend(skills)
-        # for skill in skills: self.skills.append(skill)
-        self.skills.append(skill)
+        if isinstance(skill, str):
+            self.skills.append(skill)
+        else:
+            self.skills.extend(skill)
 
 
 class FrontendDeveloper(SoftwareEngineer):
     def __init__(self, name: str) -> None:
         super().__init__(name)
-        for skill in ["JavaScript", "HTML", "CSS"]:
-            self.learn_skill(skill)
+        # for skill in ["JavaScript", "HTML", "CSS"]:
+        #     self.learn_skill(skill)
+        self.learn_skill(["JavaScript", "HTML", "CSS"])
 
     def create_awesome_web_page(self) -> str:
         print(f"{self.name} is creating a webpage...")
@@ -23,9 +27,9 @@ class FrontendDeveloper(SoftwareEngineer):
 class BackendDeveloper(SoftwareEngineer):
     def __init__(self, name: str) -> None:
         super().__init__(name)
-        # self.learn_skill(["Python", "SQL", "Django"])
-        for skill in ["Python", "SQL", "Django"]:
-            self.learn_skill(skill)
+        self.learn_skill(["Python", "SQL", "Django"])
+        # for skill in ["Python", "SQL", "Django"]:
+        #     self.learn_skill(skill)
 
     def create_powerful_api(self) -> str:
         print(f"{self.name} is creating an API...")
@@ -35,9 +39,9 @@ class BackendDeveloper(SoftwareEngineer):
 class AndroidDeveloper(SoftwareEngineer):
     def __init__(self, name: str) -> None:
         super().__init__(name)
-        # self.learn_skill(["Java", "Android studio"])
-        for skill in ["Java", "Android studio"]:
-            self.learn_skill(skill)
+        self.learn_skill(["Java", "Android studio"])
+        # for skill in ["Java", "Android studio"]:
+        #     self.learn_skill(skill)
 
     def create_smooth_mobile_app(self) -> str:
         print(f"{self.name} is creating a mobile app...")
